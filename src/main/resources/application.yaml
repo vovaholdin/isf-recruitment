@@ -10,3 +10,8 @@ spring:
       ddl-auto: update
     show-sql: true
 
+  messages:
+    encoding: UTF-8
+    basename: messages
+    fallback-to-system-locale: false
+    cache-duration: 3600

@@ -1,10 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>ISF Group</title>
+    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{css/index.css}">
+    <div th:replace="layouts/header :: header"></div>
+
 </head>
 <body>
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title" th:text="#{hero.title}">
+            Металлоконструкции и монтаж промышленных объектов по всей Европе
+        </h1>
+        <div class="hero-description">
+            <p th:text="#{hero.desc1}">
+                Мы — компания, занимающаяся сборкой и монтажом металлоконструкций для промышленных объектов.
+            </p>
+            <p th:text="#{hero.desc2}">
+                Работаем на заводах по всей Европе, выезжаем на объекты и выполняем сварочные и монтажные работы на месте.
+            </p>
+        </div>
+    </div>
+</section>
 
+<section class="what-we-do">
+    <div class="container">
+        <h2 th:text="#{what.title}">Что здесь происходит</h2>
+        <p class="section-intro" th:text="#{what.intro}">Если коротко — это реальная промышленная работа:</p>
+
+        <div class="work-grid">
+            <div class="work-card">
+                <div class="work-icon">🔧</div>
+                <h3 th:text="#{work.item1.title}">Сварка и монтаж металлоконструкций</h3>
+                <p th:text="#{work.item1.desc}">Профессиональные сварочные и монтажные работы на промышленных объектах</p>
+            </div>
+            <div class="work-card">
+                <div class="work-icon">🏭</div>
+                <h3 th:text="#{work.item2.title}">Работа на заводах и промышленных объектах</h3>
+                <p th:text="#{work.item2.desc}">Выполнение работ непосредственно на производственных площадках</p>
+            </div>
+            <div class="work-card">
+                <div class="work-icon">🌍</div>
+                <h3 th:text="#{work.item3.title}">Командировки по Европе</h3>
+                <p th:text="#{work.item3.desc}">Обычно 3 месяца на объекте с полным обеспечением</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="looking-for">
+    <div class="container">
+        <h2 th:text="#{looking.title}">Кого мы ищем</h2>
+        <p class="section-intro" th:text="#{looking.intro}">Нам нужны рабочие, которые:</p>
+
+        <div class="requirements-list">
+            <div class="requirement-item">
+                <span class="check-icon">✓</span>
+                <span th:text="#{looking.req1}">Умеют работать с строительным инструментом</span>
+            </div>
+            <div class="requirement-item">
+                <span class="check-icon">✓</span>
+                <span th:text="#{looking.req2}">Имеют опыт сварки дуговой</span>
+            </div>
+            <div class="requirement-item">
+                <span class="check-icon">✓</span>
+                <span th:text="#{looking.req3}">Имеют документы для работы в ЕС</span>
+            </div>
+        </div>
+
+        <div class="experience-note">
+            <span class="hand-icon">👉</span>
+            <span th:text="#{looking.note}">Опыт приветствуется</span>
+        </div>
+    </div>
+</section>
+
+<section class="trust-block">
+    <div class="container">
+        <h2 th:text="#{trust.title}">Почему к нам идут работать</h2>
+
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-number">01</div>
+                <h3 th:text="#{trust.item1.title}">Адекватное руководство</h3>
+                <p th:text="#{trust.item1.desc}">Понятные задачи и справедливое отношение</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">02</div>
+                <h3 th:text="#{trust.item2.title}">Нормальный коллектив</h3>
+                <p th:text="#{trust.item2.desc}">Всегда подскажут и помогут на объекте</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-number">03</div>
+                <h3 th:text="#{trust.item3.title}">Понятная работа</h3>
+                <p th:text="#{trust.item3.desc}">Прозрачные условия и чёткие задачи</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2 th:text="#{cta.title}">Готовы узнать больше?</h2>
+            <p th:text="#{cta.desc}">Посмотрите подробную информацию о компании и условиях работы</p>
+            <a href="/about" class="cta-link-button" th:text="#{cta.btn}">
+                Узнать подробнее о компании и работе
+            </a>
+        </div>
+    </div>
+</section>
+
+<script th:src="@{js/header.js}"></script>
 </body>
 </html>
