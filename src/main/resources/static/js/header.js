@@ -25,4 +25,5 @@ mobileNavLinks.forEach(link => {
             menu.style.display = 'none';
         }
     });
+
 });

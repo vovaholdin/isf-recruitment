@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{page.apply.title}">Подать заявку на работу</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/vacancies.css}">
+</head>
+<body>
+<!-- Header -->
+<div th:replace="~{layouts/header :: header}"></div>
+<main class="vacancies-page">
+    <div class="container">
+        <div class="page-header">
+            <h1 th:text="#{vacancies.page.title}">Открытые вакансии</h1>
+            <p th:text="#{vacancies.page.subtitle}">Выберите подходящую вакансию и откликнитесь</p>
+        </div>
+
+        <div class="vacancies-grid">
+            <!-- Vacancy 1: Welder -->
+            <div class="vacancy-card welder-card">
+                <div class="vacancy-image">
+                    <div class="vacancy-overlay">
+                        <div class="vacancy-icon">🔥</div>
+                    </div>
+                </div>
+                <div class="vacancy-info">
+                    <h2 th:text="#{vacancy.welder.title}">Сварщик</h2>
+                    <p class="vacancy-salary" th:text="#{vacancy.welder.salary}">€1800-2500/месяц</p>
+                    <a th:href="@{/vacancy(type='welder')}" class="btn-respond" th:text="#{vacancy.button.respond}">
+                        Откликнуться
+                    </a>
+                </div>
+            </div>
+
+            <!-- Vacancy 2: Locksmith -->
+            <div class="vacancy-card locksmith-card">
+                <div class="vacancy-image">
+                    <div class="vacancy-overlay">
+                        <div class="vacancy-icon">🔧</div>
+                    </div>
+                </div>
+                <div class="vacancy-info">
+                    <h2 th:text="#{vacancy.locksmith.title}">Слесарь</h2>
+                    <p class="vacancy-salary" th:text="#{vacancy.locksmith.salary}">€1600-2200/месяц</p>
+                    <a th:href="@{/vacancy(type='locksmith')}" class="btn-respond" th:text="#{vacancy.button.respond}">
+                        Откликнуться
+                    </a>
+                </div>
+            </div>
+
+            <!-- Vacancy 3: Beginner -->
+            <div class="vacancy-card beginner-card">
+                <div class="vacancy-image">
+                    <div class="vacancy-overlay">
+                        <div class="vacancy-icon">🎓</div>
+                    </div>
+                </div>
+                <div class="vacancy-info">
+                    <h2 th:text="#{vacancy.beginner.title}">Помощник (без опыта)</h2>
+                    <p class="vacancy-salary" th:text="#{vacancy.beginner.salary}">€1200-1600/месяц</p>
+                    <a th:href="@{/vacancy(type='beginner')}" class="btn-respond" th:text="#{vacancy.button.respond}">
+                        Откликнуться
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script th:src="@{/js/header.js}"></script>
+<script>
+    function changeLanguage(lang) {
+        const url = new URL(window.location);
+        url.searchParams.set('lang', lang);
+        window.location.href = url.toString();
+    }
+</script>
+</body>
+</html>

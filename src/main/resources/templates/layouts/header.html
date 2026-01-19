@@ -17,22 +17,22 @@ xmlns:th="http://www.thymeleaf.org">
 
     <!-- Navigation -->
     <nav class="nav">
-      <a href="/" class="nav-link" th:text="#{nav.home}">Главная</a>
-      <a href="/vacancies" class="nav-link" th:text="#{nav.vacancies}">Вакансии</a>
-      <a href="/about" class="nav-link" th:text="#{nav.about}">О компании</a>
-      <a href="/contacts" class="nav-link" th:text="#{nav.contacts}">Контакты</a>
+      <a th:href="@{/}" class="nav-link" th:text="#{nav.home}">Главная</a>
+      <a th:href="@{/vacancies}" class="nav-link" th:text="#{nav.vacancies}">Вакансии</a>
+      <a th:href="@{/about}" class="nav-link" th:text="#{nav.about}">О компании</a>
+      <a th:href="@{/contacts}" class="nav-link" th:text="#{nav.contacts}">Контакты</a>
     </nav>
 
-    <!-- CTA Button -->
-    <a href="/apply" class="cta-button" th:text="#{header.cta}">Подать заявку</a>
+<!--    &lt;!&ndash; CTA Button &ndash;&gt;-->
+<!--    <a href="/apply" class="cta-button" th:text="#{header.cta}">Подать заявку</a>-->
 
     <!-- Language Dropdown -->
     <div class="lang-dropdown">
       <button class="lang-btn">🌐</button>
       <ul class="lang-menu">
-        <li><a th:href="@{?lang=pt}">PT</a></li>
-        <li><a th:href="@{?lang=en}">EN</a></li>
-        <li><a th:href="@{?lang=uk}">UA</a></li>
+        <li><a href="" onclick="changeLanguage('pt'); return false;">PT</a></li>
+        <li><a href="" onclick="changeLanguage('en'); return false;">EN</a></li>
+        <li><a href="" onclick="changeLanguage('uk'); return false">UA</a></li>
       </ul>
     </div>
 
@@ -55,4 +55,5 @@ xmlns:th="http://www.thymeleaf.org">
 
 
 </body>
+
 </html>
