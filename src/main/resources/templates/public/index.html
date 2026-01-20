@@ -6,10 +6,11 @@ xmlns:th="http://www.thymeleaf.org">
     <title>ISF Group</title>
     <link rel="stylesheet" th:href="@{css/header.css}">
     <link rel="stylesheet" th:href="@{css/index.css}">
-    <div th:replace="layouts/header :: header"></div>
+
 
 </head>
 <body>
+<div th:replace="~{layouts/header :: header}"></div>
 <section class="hero">
     <div class="container">
         <h1 class="hero-title" th:text="#{hero.title}">
