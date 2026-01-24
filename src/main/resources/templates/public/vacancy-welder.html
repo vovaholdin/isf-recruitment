@@ -65,10 +65,10 @@
                 <label for="phonenumber" th:text="#{apply.field.phone}">Телефон *</label>
                 <input type="tel"
                        id="phonenumber"
-                       th:field="*{phonenumber}"
+                       th:field="*{phone_number}"
                        required
                        placeholder="+351123456789">
-                <span class="error-message" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}"></span>
+                <span class="error-message" th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></span>
             </div>
 
             <!-- Country -->
