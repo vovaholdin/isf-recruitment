@@ -46,6 +46,7 @@ public class VacancyController {
 
     @PostMapping("/apply")
     public String submitVacancy(@ModelAttribute("application") User user){
+        userService.create(user);
         return "redirect:/";
 
     }

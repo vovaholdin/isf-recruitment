@@ -15,14 +15,13 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
         httpSecurity
                 .authorizeHttpRequests(auth -> auth
-                                .requestMatchers("/hr/**").hasRole("HR")
                                 .anyRequest().permitAll()
-                )
-                .formLogin(form -> form
-                        .loginPage("/login")
-                        .defaultSuccessUrl("/vacancy")
-                        .failureUrl("/hr/login?error=true")
-                        .permitAll()
+
+//                .formLogin(form -> form
+//                        .loginPage("/login")
+//                        .defaultSuccessUrl("/vacancy")
+//                        .failureUrl("/hr/login?error=true")
+//                        .permitAll()
                 );
         return httpSecurity.build();
     }

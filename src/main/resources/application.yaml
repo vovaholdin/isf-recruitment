@@ -25,4 +25,5 @@ spring:
     baseline-on-migrate: true
 
 
-
+hr:
+  invite-code: ISF-HR-CODE
