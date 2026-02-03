@@ -17,6 +17,5 @@ public class IndexController {
     public String about(){
         return "public/about";
     }
-    //todo решить проблему почему секция в html index ломает css header
 
 }
