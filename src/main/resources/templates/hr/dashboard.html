@@ -92,8 +92,8 @@
                 <button class="btn-view" th:onclick="'viewUser(' + ${user.id} + ')'">
                     View Details
                 </button>
-                <button class="btn-edit" th:onclick="'editUser(' + ${user.id} + ')'">
-                    Edit
+                <button class="btn-edit" th:onclick="'deleteUser(' + ${user.id} + ')'">
+                    delete
                 </button>
             </div>
         </div>
@@ -114,10 +114,11 @@
 <script>
     function viewUser(id) {
         window.location.href = '/hr/user/' + id;
+
     }
 
-    function editUser(id) {
-        window.location.href = '/hr/user/edit/' + id;
+    function deleteUser(id) {
+        window.location.href = '/hr/user/delete/' + id;
     }
 
     // Search functionality

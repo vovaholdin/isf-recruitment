@@ -2,25 +2,26 @@ package com.company.isf.hr;
 
 import com.company.isf.entity.User;
 import com.company.isf.entity.UserService;
+import com.company.isf.notification.MailSenderService;
 import jakarta.servlet.http.HttpServletRequest;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@RequiredArgsConstructor
 public class HrController {
     private final UserService userService;
+    private final MailSenderService senderService;
+
     @Value("${hr.invite-code}")
     private String invite_code;
 
-    public HrController(UserService userService) {
-        this.userService = userService;
-    }
+
 
     @GetMapping("/loghr")
     public String getLogin(){
@@ -43,5 +44,19 @@ public class HrController {
         model.addAttribute("users", users);
         return "/hr/dashboard";
     }
+
+    @GetMapping("/hr/user/delete/{id}")
+    public String delete(@PathVariable Long id){
+        userService.delete(id);
+        return "redirect:/hr/dashboard";
+    }
+
+    @GetMapping("/hr/user/{id}")
+    public String viewInfo(@PathVariable Long id){
+        User user = userService.findById(id).orElseThrow();
+        senderService.sendEmail(user.getEmail(), "ISF work", "hello ");
+        return "redirect:/hr/dashboard";
+    }
+    //todo сделать при нажатии view что бы отображалась на всю страницу инфо о юзере и можно было отправить ему письмо по почте
 
 }
