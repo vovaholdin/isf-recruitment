@@ -1,14 +1,290 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{about.page.title}">About Us - ISF Group</title>
     <div th:replace="~{layouts/header :: header}"></div>
-    <link rel="stylesheet" th:href="@{css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/about.css}">
 </head>
 <body>
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1 th:text="#{about.hero.title}">Industrial Service & Furnaces</h1>
+        <p class="hero-subtitle" th:text="#{about.hero.subtitle}">
+            Building and maintaining glass melting furnaces across Europe
+        </p>
+    </div>
+</section>
 
-<script th:src="@{js/header.js}"></script>
+<!-- Main Content -->
+<div class="container">
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="content-grid">
+            <div class="text-content">
+                <h2 th:text="#{about.intro.heading}">Who We Are</h2>
+                <p th:text="#{about.intro.text1}">
+                    ISF Group specializes in the construction and maintenance of glass melting furnaces.
+                    We handle everything from installation and assembly to ongoing technical support for
+                    heavy industrial equipment operating at extreme temperatures.
+                </p>
+                <p th:text="#{about.intro.text2}">
+                    Our team works on projects across Poland and Portugal, serving major glass
+                    manufacturing facilities. We're the people who keep production running —
+                    24/7, on schedule, safely.
+                </p>
+            </div>
+            <div class="image-placeholder">
+                <div class="placeholder-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                </div>
+                <span th:text="#{about.image.furnace}">Industrial furnace / Team at work</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="services-section">
+        <h2 th:text="#{about.services.heading}">What We Do</h2>
+        <div class="content-grid reverse">
+            <div class="image-placeholder">
+                <div class="placeholder-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                </div>
+                <span th:text="#{about.image.installation}">Installation process / Technical work</span>
+            </div>
+            <div class="text-content">
+                <div class="service-list">
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 th:text="#{about.services.item1.title}">Furnace Construction & Installation</h3>
+                            <p th:text="#{about.services.item1.text}">
+                                Complete assembly of glass melting furnaces, from foundation to commissioning.
+                                We work with high-temperature refractory materials and precision steel structures.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 th:text="#{about.services.item2.title}">Mechanical & Assembly Work</h3>
+                            <p th:text="#{about.services.item2.text}">
+                                Locksmith work, pipe fitting, structural steel assembly, and heavy equipment installation.
+                                Our crews handle projects that require both precision and physical capability.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="service-item">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 th:text="#{about.services.item3.title}">Maintenance & Technical Support</h3>
+                            <p th:text="#{about.services.item3.text}">
+                                Scheduled maintenance, emergency repairs, equipment upgrades.
+                                We keep furnaces operational with minimal downtime.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Approach Section -->
+    <section class="approach-section">
+        <h2 th:text="#{about.approach.heading}">How We Work</h2>
+        <div class="approach-grid">
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 th:text="#{about.approach.card1.title}">Safety First</h3>
+                <p th:text="#{about.approach.card1.text}">
+                    Working with high-temperature equipment and heavy machinery requires strict
+                    safety protocols. Every team member is trained, every procedure is followed.
+                </p>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                    </svg>
+                </div>
+                <h3 th:text="#{about.approach.card2.title}">Precision Matters</h3>
+                <p th:text="#{about.approach.card2.text}">
+                    Furnace construction isn't forgiving. Measurements must be exact, materials properly installed,
+                    timing coordinated. We don't cut corners.
+                </p>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                    </svg>
+                </div>
+                <h3 th:text="#{about.approach.card3.title}">Team Coordination</h3>
+                <p th:text="#{about.approach.card3.text}">
+                    Complex projects need experienced crews working together. Our teams communicate clearly,
+                    solve problems on-site, and deliver on schedule.
+                </p>
+            </div>
+
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 th:text="#{about.approach.card4.title}">International Projects</h3>
+                <p th:text="#{about.approach.card4.text}">
+                    We operate across borders. Teams move between Poland and Portugal,
+                    working with different facilities, languages, and technical requirements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Our Team Section -->
+    <section class="careers-section">
+        <div class="content-grid">
+            <div class="image-placeholder">
+                <div class="placeholder-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                </div>
+                <span th:text="#{about.image.team}">Team working together</span>
+            </div>
+            <div class="text-content">
+                <h2 th:text="#{about.careers.heading}">Work With Us</h2>
+                <p th:text="#{about.careers.text1}">
+                    We're looking for skilled tradespeople and engineers who want to work on real industrial projects.
+                    If you have experience in mechanical work, welding, assembly, or industrial maintenance,
+                    we want to hear from you.
+                </p>
+
+                <div class="careers-highlights">
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span th:text="#{about.careers.benefit1}">International projects across Poland and Portugal</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span th:text="#{about.careers.benefit2}">Work with specialized high-temperature equipment</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span th:text="#{about.careers.benefit3}">Stable employment with experienced crews</span>
+                    </div>
+                    <div class="highlight-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span th:text="#{about.careers.benefit4}">Skill development in industrial construction</span>
+                    </div>
+                </div>
+
+                <p th:text="#{about.careers.text2}">
+                    We value people who show up, do the work, and can handle the physical and technical demands of the job.
+                    If that sounds like you, check our open positions.
+                </p>
+
+                <a th:href="@{/vacancies}" class="btn-careers" th:text="#{about.careers.button}">
+                    View Open Positions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <h2 th:text="#{about.contact.heading}">Our Offices</h2>
+        <div class="offices-grid">
+            <!-- Poland Office -->
+            <div class="office-card">
+                <div class="office-flag">🇵🇱</div>
+                <h3 th:text="#{about.contact.poland.title}">Poland</h3>
+                <div class="office-info">
+                    <p class="company-name">Industrial Service & Furnaces SP. z o.o.</p>
+                    <p class="address">
+                        Wspólna 3<br>
+                        41-200 Sosnowiec
+                    </p>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <a href="mailto:sekretariat.pl@isf-group.pt">sekretariat.pl@isf-group.pt</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Portugal Office -->
+            <div class="office-card">
+                <div class="office-flag">🇵🇹</div>
+                <h3 th:text="#{about.contact.portugal.title}">Portugal</h3>
+                <div class="office-info">
+                    <p class="company-name">ISF - Serviços Industriais e Fornos Unipessoal, Lda</p>
+                    <p class="address">
+                        Rua Garcia Resende, nr 11, loja B<br>
+                        2500-208 Caldas da Rainha
+                    </p>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <a href="mailto:office@isf-group.pt">office@isf-group.pt</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+</body>
+<script th:src="@{/js/header.js}"></script>
 <script>
     function changeLanguage(lang) {
         const url = new URL(window.location);
@@ -16,5 +292,4 @@
         window.location.href = url.toString();
     }
 </script>
-</body>
 </html>

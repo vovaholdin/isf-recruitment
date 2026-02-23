@@ -69,6 +69,7 @@ public class HrController {
 
         senderService.sendEmail(recipient, subject, message);
 
+
         return "redirect:/hr/dashboard";
     }
 
