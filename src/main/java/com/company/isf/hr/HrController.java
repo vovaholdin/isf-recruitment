@@ -35,7 +35,6 @@ public class HrController {
         if (!invite_code.equals(code)){
             return "redirect:/error";
         }
-
         httpServletRequest.getSession().setAttribute("HR_LOGGED_IN", true);
         return "redirect:/hr/dashboard";
     }

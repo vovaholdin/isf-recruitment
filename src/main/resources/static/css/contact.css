@@ -1,0 +1,147 @@
+/* contacts.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@700;800&display=swap');
+
+.contacts-hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    padding: 80px 40px 60px;
+    text-align: center;
+    color: white;
+}
+
+.contacts-label {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.contacts-hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+/* ── Grid ── */
+.contacts-section {
+    background: #f4f6f9;
+    padding: 80px 40px;
+    min-height: 60vh;
+}
+
+.offices-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ── Card ── */
+.office-card {
+    background: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 20px rgba(30, 60, 114, 0.08);
+    animation: fadeUp 0.6s ease both;
+    animation-delay: var(--delay, 0s);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.office-card:hover {
+    box-shadow: 0 8px 40px rgba(30, 60, 114, 0.16);
+    transform: translateY(-4px);
+}
+
+.office-number01 {
+    background: url('../images/index/poland.png') center/cover no-repeat;
+    height: 183px;
+}
+
+.office-number02 {
+    background: url('../images/index/portugal.png') center/cover no-repeat;
+    height: 183px;
+}
+
+.office-body {
+    padding: 28px 32px 36px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.office-city {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #1e3c72;
+    margin: 0 0 6px;
+    letter-spacing: -0.5px;
+}
+
+.office-address {
+    font-family: 'Barlow', sans-serif;
+    font-size: 14px;
+    color: #8a9bb5;
+    margin: 0 0 28px;
+    line-height: 1.5;
+}
+
+/* ── Detail rows ── */
+.office-details {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    color: #3a4a6b;
+}
+
+.detail-row svg {
+    width: 18px;
+    height: 18px;
+    fill: #2a5298;
+    flex-shrink: 0;
+}
+
+.detail-row a {
+    color: #2a5298;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.detail-row a:hover {
+    border-bottom-color: #2a5298;
+}
+
+/* ── Animation ── */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .offices-grid {
+        grid-template-columns: 1fr;
+    }
+    .contacts-hero h1 {
+        font-size: 44px;
+    }
+}
