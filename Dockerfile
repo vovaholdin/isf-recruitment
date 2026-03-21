@@ -14,4 +14,4 @@ COPY --from=build /app/target/*.jar app.jar
 # EXPOSE 8080
 
 # Команда запуска с использованием PORT из Environment Variables
-ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=$PORT"]
+ENTRYPOINT ["sh", "-c", "java -jar app.jar --server.port=${PORT:-8080}"]

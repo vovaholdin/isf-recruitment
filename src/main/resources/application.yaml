@@ -40,5 +40,5 @@ spring:
 
 hr:
   invite-code: ${HR_CODE}
-#server:
-#  port: ${PORT:8080}
+server:
+  port: 8080
