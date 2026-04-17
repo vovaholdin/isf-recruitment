@@ -63,8 +63,7 @@ public class HrController {
     public String sendMail(@RequestParam Long userId,
                            @RequestParam String recipient,
                            @RequestParam String subject,
-                           @RequestParam String message,
-                           RedirectAttributes redirectAttributes){
+                           @RequestParam String message){
 
         senderService.sendEmail(recipient, subject, message);
 

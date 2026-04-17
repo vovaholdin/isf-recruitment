@@ -20,7 +20,8 @@ xmlns:th="http://www.thymeleaf.org">
     <nav class="nav">
       <a th:href="@{/}" class="nav-link" th:text="#{nav.home}">Главная</a>
       <a th:href="@{/vacancies}" class="nav-link" th:text="#{nav.vacancies}">Вакансии</a>
-      <a th:href="@{/about}" class="nav-link" th:text="#{nav.about}">О компании</a>
+      <a th:href="@{/industries}" class="nav-link" th:text="#{nav.industries}">О компании</a>
+      <a th:href="@{/services}" class="nav-link" th:text="#{nav.services}">О компании</a>
       <a th:href="@{/contacts}" class="nav-link" th:text="#{nav.contacts}">Контакты</a>
     </nav>
 
@@ -47,9 +48,10 @@ xmlns:th="http://www.thymeleaf.org">
   <nav class="mobile-nav" id="mobileNav">
     <a href="/" class="mobile-nav-link active" th:text="#{nav.home}">Главная</a>
     <a href="/vacancies" class="mobile-nav-link" th:text="#{nav.vacancies}">Вакансии</a>
-    <a href="/about" class="mobile-nav-link" th:text="#{nav.about}">О компании</a>
+    <a href="/industries" class="mobile-nav-link" th:text="#{nav.industries}">Отрасли</a>
+    <a href="/services" class="mobile-nav-link" th:text="#{nav.services}">Сервисы</a>
     <a href="/contacts" class="mobile-nav-link" th:text="#{nav.contacts}">Контакты</a>
-    <a href="/apply" class="mobile-cta-button" th:text="#{header.cta}">Подать заявку</a>
+    <a href="/vacancies" class="mobile-cta-button" th:text="#{header.cta}">Подать заявку</a>
   </nav>
 </header>
 

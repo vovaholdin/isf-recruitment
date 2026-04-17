@@ -14,16 +14,17 @@ mobileNavLinks.forEach(link => {
         mobileMenuBtn.classList.remove('active');
         mobileNav.classList.remove('active');
     });
-
-    document.addEventListener('click', function (e) {
-        const dropdown = document.querySelector('.lang-dropdown');
-        const menu = dropdown.querySelector('.lang-menu');
-
-        if (dropdown.contains(e.target)) {
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        } else {
-            menu.style.display = 'none';
-        }
-    });
-
 });
+
+// Lang dropdown — ВЫНЕСЕНО наружу
+document.addEventListener('click', function (e) {
+    const dropdown = document.querySelector('.lang-dropdown');
+    const menu = dropdown.querySelector('.lang-menu');
+
+    if (dropdown.contains(e.target)) {
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    } else {
+        menu.style.display = 'none';
+    }
+});
+
