@@ -1,0 +1,11 @@
+CREATE TABLE client(
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(265) NOT NULL,
+    company VARCHAR(265) NOT NULL,
+    email VARCHAR(265) NOT NULL,
+    phone VARCHAR(40) NOT NULL,
+    message VARCHAR(265) NOT NULL
+
+);
+
+ALTER TABLE files RENAME TO files_user;

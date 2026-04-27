@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="#{page.services.title}">Services</title>
-    <link rel="stylesheet" th:href="@{/css/services.css}"/>
+    <title th:text="#{page.industries.title}">Industries</title>
     <link rel="icon" type="image/png" th:href="@{/images/index/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/industries.css}"/>
     <link rel="stylesheet" th:href="@{/css/header.css}"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
@@ -13,25 +13,25 @@
 </head>
 <body>
 
-<main class="services-page">
+<main class="industries-page">
 
     <!-- Page Header -->
     <section class="page-header">
         <div class="header-inner">
             <span class="header-label">What we do</span>
-            <h1 class="header-title" th:text="#{page.services.heading}">Our Services</h1>
-            <p class="header-sub" th:text="#{page.services.subheading}">
+            <h1 class="header-title" th:text="#{page.industries.heading}">Our Industries</h1>
+            <p class="header-sub" th:text="#{page.industries.subheading}">
                 Engineering solutions built for precision, durability, and scale.
             </p>
         </div>
     </section>
 
-    <!-- Services Grid -->
-    <section class="services-grid-section">
-        <div class="services-grid">
+    <!-- Industries Grid -->
+    <section class="industries-grid-section">
+        <div class="industries-grid">
 
-            <!-- Card 1: Industrial Furnaces Design -->
-            <article class="service-card" data-index="01">
+            <!-- Card 1: Industrial Furnaces -->
+            <article class="industry-card" data-index="01">
                 <div class="card-accent"></div>
                 <div class="card-body">
                     <div class="card-icon">
@@ -43,13 +43,13 @@
                             <path d="M20 40H28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h2 class="card-title" th:text="#{services.furnaces.design.title}">
-                        Industrial Furnaces Design
+                    <h2 class="card-title" th:text="#{industry.furnaces.title}">
+                        Industrial Furnaces
                     </h2>
-                    <p class="card-description" th:text="#{services.furnaces.design.description}">
+                    <p class="card-description" th:text="#{industry.furnaces.description}">
                         Add your description here.
                     </p>
-                    <a th:href="@{/services/furnaces-design}" class="card-link">
+                    <a th:href="@{/industries/industrial-furnaces}" class="card-link">
                         <span th:text="#{common.learn_more}">Learn more</span>
                         <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
                             <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -58,37 +58,8 @@
                 </div>
             </article>
 
-            <!-- Card 2: Industrial Furnaces Repair -->
-            <article class="service-card" data-index="02">
-                <div class="card-accent"></div>
-                <div class="card-body">
-                    <div class="card-icon">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M36 12L30 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M34 8C36.209 8 38 9.791 38 12C38 14.209 36.209 16 34 16C31.791 16 30 14.209 30 12C30 9.791 31.791 8 34 8Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M14 36L20 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M12 38C12 35.791 13.791 34 16 34C18.209 34 20 35.791 20 38C20 40.209 18.209 42 16 42C13.791 42 12 40.209 12 38Z" stroke="currentColor" stroke-width="2"/>
-                            <path d="M18 18L30 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <rect x="10" y="14" width="12" height="12" rx="2" transform="rotate(-45 10 14)" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h2 class="card-title" th:text="#{services.furnaces.repair.title}">
-                        Industrial Furnaces Repair
-                    </h2>
-                    <p class="card-description" th:text="#{services.furnaces.repair.description}">
-                        Add your description here.
-                    </p>
-                    <a th:href="@{/services/furnaces-repair}" class="card-link">
-                        <span th:text="#{common.learn_more}">Learn more</span>
-                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
-                            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </a>
-                </div>
-            </article>
-
-            <!-- Card 3: Metal Structures -->
-            <article class="service-card" data-index="03">
+            <!-- Card 2: Metal Structures -->
+            <article class="industry-card" data-index="02">
                 <div class="card-accent"></div>
                 <div class="card-body">
                     <div class="card-icon">
@@ -99,13 +70,13 @@
                             <path d="M24 8V28" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h2 class="card-title" th:text="#{services.metal.structures.title}">
+                    <h2 class="card-title" th:text="#{industry.metal.structures.title}">
                         Metal Structures
                     </h2>
-                    <p class="card-description" th:text="#{services.metal.structures.description}">
+                    <p class="card-description" th:text="#{industry.metal.structures.description}">
                         Add your description here.
                     </p>
-                    <a th:href="@{/services/metal-structures}" class="card-link">
+                    <a th:href="@{/industries/metal-structures}" class="card-link">
                         <span th:text="#{common.learn_more}">Learn more</span>
                         <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
                             <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -114,8 +85,8 @@
                 </div>
             </article>
 
-            <!-- Card 4: Welding & Assembly -->
-            <article class="service-card" data-index="04">
+            <!-- Card 3: Welding -->
+            <article class="industry-card" data-index="03">
                 <div class="card-accent"></div>
                 <div class="card-body">
                     <div class="card-icon">
@@ -128,13 +99,13 @@
                             <circle cx="10" cy="38" r="2" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h2 class="card-title" th:text="#{services.welding.assembly.title}">
-                        Welding&amp; Assembly
+                    <h2 class="card-title" th:text="#{industry.welding.title}">
+                        Welding
                     </h2>
-                    <p class="card-description" th:text="#{services.welding.assembly.description}">
+                    <p class="card-description" th:text="#{industry.welding.description}">
                         Add your description here.
                     </p>
-                    <a th:href="@{/services/welding-assembly}" class="card-link">
+                    <a th:href="@{/industries/welding}" class="card-link">
                         <span th:text="#{common.learn_more}">Learn more</span>
                         <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
                             <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -143,8 +114,41 @@
                 </div>
             </article>
 
-            <!-- Card 5: Engineering Consulting (wide card) -->
-            <article class="service-card service-card--wide" data-index="05">
+            <!-- Card 4: Solar Panels -->
+            <article class="industry-card" data-index="04">
+                <div class="card-accent"></div>
+                <div class="card-body">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="14" width="36" height="22" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 22H42" stroke="currentColor" stroke-width="2"/>
+                            <path d="M6 30H42" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 14V36" stroke="currentColor" stroke-width="2"/>
+                            <path d="M30 14V36" stroke="currentColor" stroke-width="2"/>
+                            <path d="M18 40H30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 36V40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M24 8V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M34 10L32 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M14 10L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h2 class="card-title" th:text="#{industry.solar.panels.title}">
+                        Solar Panels
+                    </h2>
+                    <p class="card-description" th:text="#{industry.solar.panels.description}">
+                        Add your description here.
+                    </p>
+                    <a th:href="@{/industries/solar-panels}" class="card-link">
+                        <span th:text="#{common.learn_more}">Learn more</span>
+                        <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+
+            <!-- Card 5: Engineering (wide card) -->
+            <article class="industry-card industry-card--wide" data-index="05">
                 <div class="card-accent"></div>
                 <div class="card-body">
                     <div class="card-icon">
@@ -160,13 +164,13 @@
                             <path d="M37.536 33.536L41 37" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <h2 class="card-title" th:text="#{services.engineering.consulting.title}">
-                        Engineering Consulting
+                    <h2 class="card-title" th:text="#{industry.engineering.title}">
+                        Engineering
                     </h2>
-                    <p class="card-description" th:text="#{services.engineering.consulting.description}">
+                    <p class="card-description" th:text="#{industry.engineering.description}">
                         Add your description here.
                     </p>
-                    <a th:href="@{/services/engineering-consulting}" class="card-link">
+                    <a th:href="@{/industries/engineering}" class="card-link">
                         <span th:text="#{common.learn_more}">Learn more</span>
                         <svg class="arrow-icon" viewBox="0 0 20 20" fill="none">
                             <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>

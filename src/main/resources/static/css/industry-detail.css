@@ -1,0 +1,269 @@
+/* ============================================================
+   industry-detail.css — Individual Industry Page
+   Inherits variables from industries.css
+   ============================================================ */
+
+/* --- Page Layout --- */
+.detail-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 100px;
+}
+
+/* --- Breadcrumb --- */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 32px 0 0;
+    font-size: 13px;
+    font-family: var(--font-body);
+    color: var(--text-muted);
+}
+
+.breadcrumb-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition);
+}
+
+.breadcrumb-link:hover {
+    color: var(--accent-hover);
+}
+
+.breadcrumb-sep {
+    color: var(--border-hover);
+    font-size: 15px;
+}
+
+.breadcrumb-current {
+    color: var(--text-secondary);
+}
+
+/* --- Hero --- */
+.detail-hero {
+    padding: 56px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 64px;
+}
+
+.detail-hero-inner {
+    max-width: 760px;
+}
+
+.detail-h1 {
+    font-family: var(--font-display);
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 700;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: 28px;
+}
+
+.detail-divider {
+    width: 56px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* --- Content --- */
+.detail-content-inner {
+    max-width: 760px;
+}
+
+/* --- Description List --- */
+.detail-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 64px;
+}
+
+.detail-list-item {
+    position: relative;
+    padding: 22px 0 22px 28px;
+    border-bottom: 1px solid var(--border);
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    font-family: var(--font-body);
+    transition: color var(--transition), padding-left var(--transition);
+}
+
+.detail-list-item:first-child {
+    border-top: 1px solid var(--border);
+}
+
+/* Accent dot */
+.detail-list-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 32px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    transition: transform var(--transition);
+}
+
+.detail-list-item:hover {
+    color: var(--text-primary);
+    padding-left: 34px;
+}
+
+.detail-list-item:hover::before {
+    transform: scale(1.3);
+}
+
+/* --- CTA Area --- */
+.detail-cta {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.detail-cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: var(--accent);
+    color: #ffffff;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+    box-shadow: 0 2px 12px rgba(217, 124, 20, 0.25);
+}
+
+.detail-cta-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(217, 124, 20, 0.35);
+}
+
+.detail-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition), gap var(--transition);
+}
+
+.detail-back-link:hover {
+    color: var(--accent);
+    gap: 11px;
+}
+
+.back-arrow {
+    width: 18px;
+    height: 18px;
+    transition: transform var(--transition);
+}
+
+.detail-back-link:hover .back-arrow {
+    transform: translateX(-3px);
+}
+
+/* ============================================================
+   RESPONSIVE — Tablet
+   ============================================================ */
+@media (max-width: 900px) {
+    .detail-page {
+        padding: 0 20px 80px;
+    }
+
+    .detail-hero {
+        padding: 44px 0 40px;
+        margin-bottom: 48px;
+    }
+
+    .detail-list-item {
+        font-size: 15px;
+        padding: 18px 0 18px 24px;
+    }
+
+    .detail-list-item::before {
+        top: 27px;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile
+   ============================================================ */
+@media (max-width: 640px) {
+    .detail-page {
+        padding: 0 16px 64px;
+    }
+
+    .breadcrumb {
+        padding: 24px 0 0;
+    }
+
+    .detail-hero {
+        padding: 32px 0 32px;
+        margin-bottom: 36px;
+    }
+
+    .detail-h1 {
+        font-size: 38px;
+    }
+
+    .detail-list-item {
+        font-size: 14.5px;
+        padding: 16px 0 16px 22px;
+    }
+
+    .detail-list-item:hover {
+        padding-left: 22px; /* disable shift on mobile */
+    }
+
+    .detail-list-item::before {
+        top: 24px;
+        width: 6px;
+        height: 6px;
+    }
+
+    .detail-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .detail-cta-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ============================================================
+   ACCESSIBILITY
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+    .detail-list-item,
+    .detail-list-item::before,
+    .detail-cta-btn,
+    .detail-back-link,
+    .back-arrow {
+        transition: none;
+    }
+
+    .detail-list-item:hover {
+        padding-left: 28px;
+    }
+
+    .detail-cta-btn:hover {
+        transform: none;
+    }
+}

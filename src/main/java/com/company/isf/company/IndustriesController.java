@@ -1,59 +1,42 @@
 package com.company.isf.company;
 
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/industries")
 public class IndustriesController {
+
+    private final MessageSource messageSource;
+
+    public IndustriesController(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
+
     @GetMapping
     public String show(){
-        return "services";
+        return "public/industries";
     }
 
     @GetMapping("/{type}")
-    public String service(@PathVariable String type, Model model) {
-
-        String title;
-        String description;
-
-        switch (type) {
-
-            case "industrial-furnaces":
-                title = "Industrial Furnaces";
-                description = "Design, construction, and maintenance of industrial furnaces.";
-                break;
-
-            case "metal-structures":
-                title = "Metal Structures";
-                description = "Manufacturing of high-quality metal constructions for industrial use.";
-                break;
-
-            case "welding":
-                title = "Welding Services";
-                description = "Professional welding solutions and assembly services.";
-                break;
-
-            case "solar-panels":
-                title = "Solar Panels";
-                description = "Installation and maintenance of solar energy systems.";
-                break;
-
-            case "engineering":
-                title = "Engineering Services";
-                description = "Engineering and technical consulting for industrial projects.";
-                break;
-
-            default:
-                return "error/404";
-        }
-
-        model.addAttribute("title", title);
-        model.addAttribute("description", description);
-
+    public String service(@PathVariable String type, Model model, Locale locale) {
+        model.addAttribute("industryKey", type);
+        String raw = messageSource.getMessage("industries." + type + ".desc", null, locale);
+        List<String> items = Arrays.stream(raw.split("\n"))
+                .map(s -> s.replaceFirst("^\\s*-\\s*", "").trim())
+                .filter(s -> !s.isEmpty())
+                .toList();
+        model.addAttribute("descItems", items);
         return "public/industries-sections";
     }
 }

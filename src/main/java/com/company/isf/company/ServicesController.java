@@ -1,57 +1,41 @@
 package com.company.isf.company;
 
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import java.util.stream.Collectors;
+
 @Controller
 @RequestMapping("/services")
 public class ServicesController {
+    private final MessageSource messageSource;
+
+    public ServicesController(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
+
     @GetMapping
     public String show(){
         return "public/services";
     }
 
     @GetMapping("/{type}")
-    public String engineeringConsulting(@PathVariable String type, Model model) {
-        String title;
-        String description;
-
-        switch (type) {
-
-            case "industrial-furnaces-design":
-                title = "Design and construction of industrial furnaces";
-                description = "We design and build high-performance industrial furnaces tailored to your needs.";
-                break;
-
-            case "industrial-furnaces-repair":
-                title = "Repair and maintenance of industrial furnaces";
-                description = "We provide maintenance and repair services to ensure long-term performance.";
-                break;
-
-            case "metal-structures":
-                title = "Manufacturing of metal structures";
-                description = "We produce durable and reliable metal constructions for industrial use.";
-                break;
-
-            case "welding-assembly":
-                title = "Welding and assembly services";
-                description = "Professional welding and assembly solutions for complex projects.";
-                break;
-
-            case "engineering-consulting":
-                title = "Engineering and technical consulting";
-                description = "Expert consulting services for industrial and engineering challenges.";
-                break;
-
-            default:
-                return "error/404";
-        }
-
-        model.addAttribute("title", title);
-        model.addAttribute("description", description);
+    public String engineeringConsulting(@PathVariable String type, Model model, Locale locale) {
+        model.addAttribute("serviceKey", type);
+        String raw = messageSource.getMessage("services." + type + ".desc", null, locale);
+        List<String> items = Arrays.stream(raw.split("\n"))
+                .map(s -> s.replaceFirst("^\\s*-\\s*", "").trim())
+                .filter(s -> !s.isEmpty())
+                .toList();
+        model.addAttribute("descItems", items);
         return "public/services-section";
     }
 }

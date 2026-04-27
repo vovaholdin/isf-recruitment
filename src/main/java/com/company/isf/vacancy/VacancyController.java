@@ -1,8 +1,8 @@
 package com.company.isf.vacancy;
 
-import com.company.isf.entity.Profession;
-import com.company.isf.entity.User;
-import com.company.isf.entity.UserService;
+import com.company.isf.entity.user.Profession;
+import com.company.isf.entity.user.User;
+import com.company.isf.entity.user.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

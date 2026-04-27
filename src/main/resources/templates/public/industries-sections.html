@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--
-        Controller must pass model attribute: serviceKey
-        e.g. "furnaces-design", "furnaces-repair", "metal-structures", etc.
-        Thymeleaf resolves #{services.{serviceKey}.title} etc.
-    -->
-    <title th:text="#{'services.' + ${serviceKey} + '.title'}">Service</title>
     <link rel="icon" type="image/png" th:href="@{/images/index/logo.png}">
+    <!--
+        Controller must pass model attribute: industryKey
+        e.g. "industrial-furnaces", "metal-structures", etc.
+        Thymeleaf resolves #{industries.{industryKey}.title} etc.
+    -->
+    <title th:text="#{'industries.' + ${industryKey} + '.title'}">Industry</title>
     <link rel="stylesheet" th:href="@{/css/industries.css}"/>
     <link rel="stylesheet" th:href="@{/css/industry-detail.css}"/>
     <link rel="stylesheet" th:href="@{/css/header.css}"/>
@@ -23,15 +23,15 @@
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb" aria-label="breadcrumb">
-        <a th:href="@{/services}" class="breadcrumb-link" th:text="#{page.services.heading}">Services</a>
+        <a th:href="@{/industries}" class="breadcrumb-link" th:text="#{page.industries.heading}">Industries</a>
         <span class="breadcrumb-sep">›</span>
-        <span class="breadcrumb-current" th:text="#{'services.' + ${serviceKey} + '.h1'}">Current</span>
+        <span class="breadcrumb-current" th:text="#{'industries.' + ${industryKey} + '.h1'}">Current</span>
     </nav>
 
     <!-- Hero -->
     <section class="detail-hero">
         <div class="detail-hero-inner">
-            <h1 class="detail-h1" th:text="#{'services.' + ${serviceKey} + '.h1'}">Service Name</h1>
+            <h1 class="detail-h1" th:text="#{'industries.' + ${industryKey} + '.h1'}">Industry Name</h1>
             <div class="detail-divider"></div>
         </div>
     </section>
@@ -40,6 +40,9 @@
     <section class="detail-content">
         <div class="detail-content-inner">
 
+            <!-- Description list — rendered from message key -->
+            <!-- Each line starting with "- " becomes a <li> -->
+            <!-- Controller splits desc by \n and trims "- " prefix -->
             <ul class="detail-list">
                 <li class="detail-list-item"
                     th:each="item : ${descItems}"
@@ -48,6 +51,7 @@
                 </li>
             </ul>
 
+            <!-- CTA -->
             <div class="detail-cta">
                 <a th:href="@{/contact-client}" class="detail-cta-btn" th:text="#{common.contact_us}">Contact us</a>
             </div>

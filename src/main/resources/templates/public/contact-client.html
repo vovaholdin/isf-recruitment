@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Contact</title>
+    <link rel="icon" type="image/png" th:href="@{/images/index/logo.png}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/client.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <div th:replace="~{layouts/header :: header}"></div>
+</head>
+<body>
+
+<main class="client-page">
+    <section class="client-hero">
+        <div class="client-hero__inner">
+            <h1 class="client-hero__title">Contact</h1>
+        </div>
+    </section>
+
+    <section class="client-contact">
+        <div class="client-contact__grid">
+            <div class="client-copy">
+                <span class="client-copy__label">We are here to help</span>
+                <h2 class="client-copy__title">Send us<br>a message</h2>
+                <p class="client-copy__text">
+                    If you have any question concerning our industrial services, or if you need a contact from us, please fill out the form.
+                </p>
+                <p class="client-copy__text">
+                    If you are looking for a Job Opportunity please
+                    <a th:href="@{/vacancies}" class="client-copy__link">click here</a>.
+                </p>
+            </div>
+
+            <form class="client-form" th:object="${client}" method="get">
+                <div class="client-form__field">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" th:field="*{name}" placeholder="Your name">
+                </div>
+
+                <div class="client-form__field">
+                    <label for="company">Company</label>
+                    <input id="company" type="text" th:field="*{company}" placeholder="Company name">
+                </div>
+
+                <div class="client-form__field">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" th:field="*{email}" placeholder="name@example.com">
+                </div>
+
+                <div class="client-form__field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" type="tel" th:field="*{phone}" placeholder="+44 123 456 789">
+                </div>
+
+                <div class="client-form__field client-form__field--full">
+                    <label for="message">Message</label>
+                    <textarea id="message" th:field="*{message}" rows="6" placeholder="Tell us about your request"></textarea>
+                </div>
+
+                <div class="client-form__actions">
+                    <button type="submit" class="client-form__submit">Send message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<script th:src="@{/js/header.js}"></script>
+<script>
+    function changeLanguage(lang) {
+        const url = new URL(window.location);
+        url.searchParams.set('lang', lang);
+        window.location.href = url.toString();
+    }
+</script>
+</body>
+</html>

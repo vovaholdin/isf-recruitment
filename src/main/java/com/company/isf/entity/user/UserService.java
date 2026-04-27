@@ -1,4 +1,4 @@
-package com.company.isf.entity;
+package com.company.isf.entity.user;
 
 import org.springframework.stereotype.Service;
 
@@ -28,6 +28,11 @@ public class UserService {
     public void delete(Long id){
         User user = userRepository.findById(id).orElseThrow();
         userRepository.delete(user);
+    }
 
+    public void updateMarked(Long id, boolean isMark){
+        User user = userRepository.findById(id).orElseThrow();
+        user.setMarked(isMark);
+        userRepository.save(user);
     }
 }

@@ -1,18 +1,18 @@
 package com.company.isf.hr;
 
-import com.company.isf.entity.User;
-import com.company.isf.entity.UserService;
+import com.company.isf.entity.user.User;
+import com.company.isf.entity.user.UserService;
 import com.company.isf.notification.MailSenderService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
-import java.util.Locale;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -47,7 +47,7 @@ public class HrController {
     }
 
     @GetMapping("/hr/user/delete/{id}")
-    public String delete(@PathVariable Long id){
+        public String delete(@PathVariable Long id){
         userService.delete(id);
         return "redirect:/hr/dashboard";
     }
@@ -60,7 +60,7 @@ public class HrController {
     }
 
     @PostMapping("/sendMail")
-    public String sendMail(@RequestParam Long userId,
+    public String sendMail(
                            @RequestParam String recipient,
                            @RequestParam String subject,
                            @RequestParam String message){
@@ -69,6 +69,12 @@ public class HrController {
 
 
         return "redirect:/hr/dashboard";
+    }
+
+    @PatchMapping("/api/users/{id}/mark")
+    public ResponseEntity<?> markUser(@PathVariable String id, @RequestBody Map<String, Boolean> body){
+        userService.updateMarked(Long.parseLong(id), body.get("marked"));
+        return ResponseEntity.ok().build();
     }
 
 

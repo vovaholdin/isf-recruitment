@@ -75,6 +75,81 @@ body {
 /*    gap: 15px;*/
 /*}*/
 
+/* ============================================================
+   Mark button — top-right corner of .user-card
+   Add this to your existing users CSS file
+   ============================================================ */
+
+/* Card needs position: relative if not already set */
+.user-card {
+    position: relative;
+}
+
+/* --- Mark Button --- */
+.mark-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: transform 180ms cubic-bezier(.4,0,.2,1),
+    background 180ms cubic-bezier(.4,0,.2,1),
+    color 180ms cubic-bezier(.4,0,.2,1);
+    z-index: 2;
+    background: transparent;
+}
+
+.mark-btn svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    transition: transform 200ms cubic-bezier(.34,1.56,.64,1);
+}
+
+/* Inactive — transparent, grey outline star */
+.mark-btn--inactive {
+    color: #c8cad0;
+    background: transparent;
+}
+
+.mark-btn--inactive:hover {
+    color: #d97c14;
+    background: #f5eadb;
+    transform: scale(1.1);
+}
+
+.mark-btn--inactive:hover svg {
+    transform: rotate(15deg) scale(1.05);
+}
+
+/* Active — yellow filled star */
+.mark-btn--active {
+    color: #d97c14;
+    background: #f5eadb;
+}
+
+.mark-btn--active:hover {
+    color: #bf6b0e;
+    background: #f0e0c4;
+    transform: scale(1.1);
+}
+
+.mark-btn--active svg {
+    filter: drop-shadow(0 0 3px rgba(217, 124, 20, 0.35));
+}
+
+/* Press animation */
+.mark-btn:active {
+    transform: scale(0.92);
+}
+
 #searchInput {
     flex: 1;
     padding: 12px 20px;

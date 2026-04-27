@@ -1,4 +1,4 @@
-package com.company.isf.entity;
+package com.company.isf.entity.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

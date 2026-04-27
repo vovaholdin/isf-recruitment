@@ -1,10 +1,14 @@
-package com.company.isf.entity;
+package com.company.isf.entity.user;
 
+import com.company.isf.entity.files.Files;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -24,4 +28,7 @@ public class User {
     private String country;
     @Enumerated(EnumType.STRING)
     private Profession profession;
+    private Boolean marked;
+    @OneToMany(mappedBy = "user")
+    List<Files> files;
 }

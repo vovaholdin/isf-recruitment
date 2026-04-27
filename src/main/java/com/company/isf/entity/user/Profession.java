@@ -1,4 +1,4 @@
-package com.company.isf.entity;
+package com.company.isf.entity.user;
 
 public enum Profession {
     WELDER,
