@@ -1,15 +1,16 @@
-package com.company.isf.entity.files;
+package com.company.isf.entity.files.files_user;
 
 import com.company.isf.entity.user.User;
 import jakarta.persistence.*;
 
 @Entity
-public class Files {
+@Table(name = "files_user")
+public class FilesUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String filename;
-    String url;
+    private Long id;
+    private String filename;
+    private String url;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

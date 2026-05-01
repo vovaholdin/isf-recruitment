@@ -1,13 +1,13 @@
 package com.company.isf.entity.user;
 
-import com.company.isf.entity.files.Files;
+
+import com.company.isf.entity.files.files_user.FilesUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,5 +30,5 @@ public class User {
     private Profession profession;
     private Boolean marked;
     @OneToMany(mappedBy = "user")
-    List<Files> files;
+    List<FilesUser> files;
 }

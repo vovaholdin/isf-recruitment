@@ -34,7 +34,7 @@
                 </p>
             </div>
 
-            <form class="client-form" th:object="${client}" method="get">
+            <form class="client-form" enctype="multipart/form-data" th:object="${client}" method="post" th:action="@{/upload}">
                 <div class="client-form__field">
                     <label for="name">Name</label>
                     <input id="name" type="text" th:field="*{name}" placeholder="Your name">
@@ -60,7 +60,11 @@
                     <textarea id="message" th:field="*{message}" rows="6" placeholder="Tell us about your request"></textarea>
                 </div>
 
-                <div class="client-form__actions">
+                <div class="client-form__field">
+                    <input id="file" type="file" name="file"/>
+                </div>
+
+                <div class="client-form__files">
                     <button type="submit" class="client-form__submit">Send message</button>
                 </div>
             </form>

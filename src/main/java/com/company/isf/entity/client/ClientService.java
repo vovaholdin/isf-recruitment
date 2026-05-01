@@ -1,6 +1,6 @@
-package com.company.isf.client;
+package com.company.isf.entity.client;
 
-import lombok.Getter;
+import com.company.isf.entity.files.files_client.FilesClient;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,4 +33,6 @@ public class ClientService {
     public void delete(Client entity) {
         clientRepository.delete(entity);
     }
+
+
 }
