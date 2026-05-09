@@ -1,5 +1,7 @@
 package com.company.isf.entity.user;
 
+import com.company.isf.entity.files.files_user.FilesUser;
+import com.company.isf.entity.files.files_user.FilesUserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -7,9 +9,11 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+    private final FilesUserService filesUserService;
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(FilesUserService filesUserService, UserRepository userRepository) {
+        this.filesUserService = filesUserService;
         this.userRepository = userRepository;
     }
 

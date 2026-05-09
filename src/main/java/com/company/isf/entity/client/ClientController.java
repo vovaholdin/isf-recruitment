@@ -27,9 +27,10 @@ public class ClientController {
 
     @PostMapping("/upload")
     public String uploadFile(@ModelAttribute Client client, @RequestParam("file")MultipartFile file){
+        client.setMarked(false);
         clientService.save(client);
         if (!file.isEmpty()){
-            fileStorageService.save(file, client);
+            fileStorageService.saveFilesClient(file, client);
         }
         return "redirect:/";
     }

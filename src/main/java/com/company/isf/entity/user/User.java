@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -30,5 +31,14 @@ public class User {
     private Profession profession;
     private Boolean marked;
     @OneToMany(mappedBy = "user")
-    List<FilesUser> files;
+    List<FilesUser> files = new ArrayList<>();
+    public void addFile(FilesUser filesUser){
+        files.add(filesUser);
+        filesUser.setUser(this);
+    }
+
+    public void removeFile(FilesUser filesUser){
+        files.remove(filesUser);
+        filesUser.setUser(null);
+    }
 }

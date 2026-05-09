@@ -41,6 +41,26 @@ body {
     align-items: center;
 }
 
+.clients-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+}
+
+.clients-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+
 .user-count {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;

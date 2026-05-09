@@ -1,8 +1,12 @@
 package com.company.isf.hr;
 
+
+import com.company.isf.entity.client.Client;
+import com.company.isf.entity.client.ClientService;
 import com.company.isf.entity.user.User;
 import com.company.isf.entity.user.UserService;
 import com.company.isf.notification.MailSenderService;
+import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +23,7 @@ import java.util.Map;
 public class HrController {
     private final UserService userService;
     private final MailSenderService senderService;
+    private final ClientService clientService;
 
     @Value("${hr.invite-code}")
     private String invite_code;
@@ -75,6 +80,18 @@ public class HrController {
     public ResponseEntity<?> markUser(@PathVariable String id, @RequestBody Map<String, Boolean> body){
         userService.updateMarked(Long.parseLong(id), body.get("marked"));
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/test{id}")
+    public ResponseEntity<Resource> refile(@PathVariable Long id){
+        return null;
+    }
+
+    @GetMapping("/hr/clients")
+    public String showClient(Model model){
+        List<Client> all = clientService.findAll();
+        model.addAttribute("clients", all);
+        return "hr/clients-dashboard";
     }
 
 

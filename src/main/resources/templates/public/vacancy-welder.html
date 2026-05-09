@@ -36,6 +36,7 @@
         <form th:action="@{/apply}"
               th:object="${application}"
               method="post"
+              enctype="multipart/form-data">
               class="application-form">
 
             <!-- Name -->
@@ -113,6 +114,11 @@
                 <span class="error-message" th:if="${#fields.hasErrors('jobResponsibilities')}" th:errors="*{jobResponsibilities}"></span>
             </div>
 
+            <div class="form-group">
+                <label for="cv" th:text="#{apply.field.cv}">CV / Resume</label>
+                <input type="file" id="cv" name="cv">
+            </div>
+            
             <!-- Submit Button -->
             <div class="form-actions">
                 <button type="submit" class="btn-submit" th:text="#{apply.button.submit}">

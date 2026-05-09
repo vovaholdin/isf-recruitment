@@ -24,6 +24,7 @@ public class Client {
     private String email;
     private String phone;
     private String message;
+    private boolean marked;
     @OneToMany(mappedBy = "client")
     List<FilesClient> filesClients = new ArrayList<>();
 
