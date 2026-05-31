@@ -126,43 +126,6 @@
         window.location.href = '/hr/user/delete/' + id;
     }
 
-    // Search functionality
-    const searchInput = document.getElementById('searchInput');
-    const professionFilter = document.getElementById('professionFilter');
-
-    if (searchInput) {
-        searchInput.addEventListener('keyup', function() {
-            filterUsers();
-        });
-    }
-
-    if (professionFilter) {
-        professionFilter.addEventListener('change', function() {
-            filterUsers();
-        });
-    }
-
-    function filterUsers() {
-        if (!searchInput || !professionFilter) {
-            return;
-        }
-
-        const searchText = searchInput.value.toLowerCase();
-        const selectedProfession = professionFilter.value;
-        const cards = document.querySelectorAll('.user-card');
-
-        cards.forEach(card => {
-            const name = card.querySelector('.user-name').textContent.toLowerCase();
-            const email = card.querySelector('.detail-item span').textContent.toLowerCase();
-            const profession = card.querySelector('.profession-badge').textContent.trim();
-
-            const matchesSearch = name.includes(searchText) || email.includes(searchText);
-            const matchesProfession = !selectedProfession || profession === selectedProfession;
-
-            card.style.display = matchesSearch && matchesProfession ? 'block' : 'none';
-        });
-    }
-
     function toggleMark(btn) {
         const userId = btn.getAttribute('data-user-id');
         const currentlyMarked = btn.getAttribute('data-marked') === 'true';

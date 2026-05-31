@@ -26,7 +26,7 @@ public class ClientController {
     }
 
     @PostMapping("/upload")
-    public String uploadFile(@ModelAttribute Client client, @RequestParam("file")MultipartFile file){
+    public String uploadFile(@ModelAttribute Client client, @RequestParam("file") MultipartFile file){
         client.setMarked(false);
         clientService.save(client);
         if (!file.isEmpty()){

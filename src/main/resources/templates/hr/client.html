@@ -23,18 +23,22 @@
                 <!-- User Header -->
                 <div class="user-header">
                     <div class="avatar-large">
-                        <span th:text="${#strings.substring(user.name, 0, 1)}">A</span>
+                        <span th:text="${#strings.substring(client.name, 0, 1)}">A</span>
                     </div>
                     <div class="user-title">
-                        <h1 th:text="${user.name}">User Name</h1>
-<!--                        <span class="user-id" th:text="'ID: ' + ${user.id}">ID: 1</span>-->
+                        <h1 th:text="${client.name}">User Name</h1>
+                        <!--                        <span class="user-id" th:text="'ID: ' + ${user.id}">ID: 1</span>-->
                     </div>
                 </div>
 
                 <!-- Profession Badge -->
                 <div class="profession-section">
-                    <span class="profession-badge" th:text="${user.profession}">Profession</span>
-                    <span class="experience-badge" th:text="${user.experience} + ' years'">0 years</span>
+                    <span class="profession-badge" th:text="${client.company}">Profession</span>
+                    <a th:href="@{/hr/file-client/{id}(id=${client.id})}"
+                       target="_blank"
+                       class="btn-documents">
+                        View Documents
+                    </a>
                 </div>
 
                 <!-- Contact Information -->
@@ -48,7 +52,7 @@
                                 </svg>
                                 Email
                             </div>
-                            <div class="info-value" th:text="${user.email}">email@example.com</div>
+                            <div class="info-value" th:text="${client.email}">email@example.com</div>
                         </div>
 
                         <div class="info-item">
@@ -58,7 +62,7 @@
                                 </svg>
                                 Phone
                             </div>
-                            <div class="info-value" th:text="${user.phone_number}">+123456789</div>
+                            <div class="info-value" th:text="${client.phone}">+123456789</div>
                         </div>
 
                         <div class="info-item">
@@ -67,28 +71,20 @@
                                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
                                     <circle cx="12" cy="10" r="3"/>
                                 </svg>
-                                Country
+                                Company
                             </div>
-                            <div class="info-value" th:text="${user.country}">Country</div>
+                            <div class="info-value" th:text="${client.company}">Company</div>
                         </div>
 
-                        <div class="info-item">
-                            <div class="info-label">
-                                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                    <path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                Experience
-                            </div>
-                            <div class="info-value" th:text="${user.experience} + ' years'">0 years</div>
-                        </div>
+
                     </div>
                 </div>
 
                 <!-- Job Responsibilities -->
                 <div class="info-section">
-                    <h2>Job Responsibilities</h2>
+                    <h2>Text</h2>
                     <div class="responsibilities-box">
-                        <p th:text="${user.jobResponsibilities}">
+                        <p th:text="${client.message}">
                             Job responsibilities description goes here
                         </p>
                     </div>
@@ -108,9 +104,9 @@
                     <h2>Send Email</h2>
                 </div>
 
-                <form th:action="@{/sendMail}" method="post" class="email-form">
+                <form th:action="@{/sendMailClient}" method="post" class="email-form">
                     <!-- Hidden User ID -->
-                    <input type="hidden" name="userId" th:value="${user.id}">
+                    <input type="hidden" name="userId" th:value="${client.id}">
 
                     <!-- Recipient (read-only) -->
                     <div class="form-group">
@@ -123,7 +119,7 @@
                         <input type="email"
                                id="recipient"
                                name="recipient"
-                               th:value="${user.email}"
+                               th:value="${client.email}"
                                readonly
                                class="form-input readonly">
                     </div>

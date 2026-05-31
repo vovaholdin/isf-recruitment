@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"
-xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,38 +56,66 @@ xmlns:th="http://www.thymeleaf.org">
             </div>
 
 
+            <!-- Job Responsibilities -->
+            <div class="responsibilities">
+                <h3>Responsibilities</h3>
+                <p th:text="${client.message}">
+                    message
+                </p>
+            </div>
 
-        <!-- Job Responsibilities -->
-        <div class="responsibilities">
-            <h3>Responsibilities</h3>
-            <p th:text="${client.message}">
-                message
-            </p>
+            <!-- Actions -->
+            <div class="card-actions">
+                <button class="btn-view" th:onclick="'viewUser(' + ${client.id} + ')'">
+                    View Details
+                </button>
+                <button class="btn-edit" th:onclick="'deleteUser(' + ${client.id} + ')'">
+                    delete
+                </button>
+            </div>
         </div>
+    </div>
 
-        <!-- Actions -->
-        <div class="card-actions">
-            <button class="btn-view" th:onclick="'viewUser(' + ${client.id} + ')'">
-                View Details
-            </button>
-            <button class="btn-edit" th:onclick="'deleteUser(' + ${client.id} + ')'">
-                delete
-            </button>
-        </div>
-
+    <!-- Empty State -->
+    <div class="empty-state" th:if="${clients.isEmpty()}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/>
+        </svg>
+        <h2>No Users Found</h2>
+        <p>There are no users to display at the moment.</p>
     </div>
 </div>
+<script>
+    function viewUser(id) {
+        window.location.href = '/hr/client-detail/' + id;
 
-<!-- Empty State -->
-<div class="empty-state" th:if="${clients.isEmpty()}">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 00-3-3.87m-4-12a4 4 0 010 7.75"/>
-    </svg>
-    <h2>No Users Found</h2>
-    <p>There are no users to display at the moment.</p>
-</div>
-</div>
+    }
+
+    function deleteUser(id) {
+        window.location.href = '/hr/client/delete/' + id;
+    }
+
+    function toggleMark(btn) {
+        const userId = btn.getAttribute('data-user-id');
+        const currentlyMarked = btn.getAttribute('data-marked') === 'true';
+        const newMarked = !currentlyMarked;
+
+        fetch('/api/clients/' + userId + '/mark', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ marked: newMarked })
+        })
+            .then(res => {
+                if (!res.ok) throw new Error('Failed to update');
+                btn.setAttribute('data-marked', String(newMarked));
+                btn.classList.toggle('mark-btn--active', newMarked);
+                btn.classList.toggle('mark-btn--inactive', !newMarked);
+            })
+            .catch(err => console.error('Mark update error:', err));
+    }
+</script>
+
 </body>
 </html>

@@ -15,6 +15,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity){
         httpSecurity
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/api/users/*/mark"))
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/clients/*/mark"))
                 .authorizeHttpRequests(auth -> auth
                                 .anyRequest().permitAll()
 

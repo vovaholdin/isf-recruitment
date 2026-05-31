@@ -3,6 +3,32 @@
     padding: 0;
     box-sizing: border-box;
 }
+.btn-documents {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-documents:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-color: transparent;
+}
+
+.btn-documents svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 2;
+}
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

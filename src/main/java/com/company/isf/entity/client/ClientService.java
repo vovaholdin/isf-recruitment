@@ -1,6 +1,7 @@
 package com.company.isf.entity.client;
 
 import com.company.isf.entity.files.files_client.FilesClient;
+import com.company.isf.entity.user.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public class ClientService {
 
     public void delete(Client entity) {
         clientRepository.delete(entity);
+    }
+
+    public void updateMarked(Long id, boolean isMark){
+        Client client = clientRepository.findById(id).orElseThrow();
+        client.setMarked(isMark);
+        clientRepository.save(client);
     }
 
 

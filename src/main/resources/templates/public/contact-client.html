@@ -37,27 +37,27 @@
             <form class="client-form" enctype="multipart/form-data" th:object="${client}" method="post" th:action="@{/upload}">
                 <div class="client-form__field">
                     <label for="name">Name</label>
-                    <input id="name" type="text" th:field="*{name}" placeholder="Your name">
+                    <input id="name" type="text" th:field="*{name}" placeholder="Your name" required>
                 </div>
 
                 <div class="client-form__field">
                     <label for="company">Company</label>
-                    <input id="company" type="text" th:field="*{company}" placeholder="Company name">
+                    <input id="company" type="text" th:field="*{company}" placeholder="Company name" required>
                 </div>
 
                 <div class="client-form__field">
                     <label for="email">Email</label>
-                    <input id="email" type="email" th:field="*{email}" placeholder="name@example.com">
+                    <input id="email" type="email" th:field="*{email}" placeholder="name@example.com" required>
                 </div>
 
                 <div class="client-form__field">
                     <label for="phone">Phone</label>
-                    <input id="phone" type="tel" th:field="*{phone}" placeholder="+44 123 456 789">
+                    <input id="phone" type="tel" th:field="*{phone}" placeholder="+44 123 456 789" required>
                 </div>
 
                 <div class="client-form__field client-form__field--full">
                     <label for="message">Message</label>
-                    <textarea id="message" th:field="*{message}" rows="6" placeholder="Tell us about your request"></textarea>
+                    <textarea id="message" th:field="*{message}" rows="6" placeholder="Tell us about your request" required></textarea>
                 </div>
 
                 <div class="client-form__field">
