@@ -34,6 +34,11 @@
                 <!-- Profession Badge -->
                 <div class="profession-section">
                     <span class="profession-badge" th:text="${user.profession}">Profession</span>
+                    <a th:href="@{/hr/file-user/{id}(id=${user.id})}"
+                       target="_blank"
+                       class="btn-documents">
+                        View Documents
+                    </a>
                     <span class="experience-badge" th:text="${user.experience} + ' years'">0 years</span>
                 </div>
 

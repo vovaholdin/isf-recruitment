@@ -1,147 +1,193 @@
-/* contacts.css */
-
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&family=Barlow+Condensed:wght@700;800&display=swap');
-
 .contacts-hero {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    padding: 80px 40px 60px;
-    text-align: center;
-    color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 24px 56px;
+    border-bottom: 1px solid var(--border);
 }
 
 .contacts-label {
-    font-family: 'Barlow', sans-serif;
-    font-size: 13px;
+    display: inline-block;
+    margin-bottom: 16px;
+    padding: 5px 12px;
+    background: var(--accent-light);
+    border-radius: 4px;
+    color: var(--accent);
+    font-size: 11px;
     font-weight: 600;
-    letter-spacing: 4px;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    opacity: 0.6;
-    display: block;
-    margin-bottom: 12px;
 }
 
 .contacts-hero h1 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 64px;
-    font-weight: 800;
-    margin: 0;
-    letter-spacing: -1px;
+    font-family: var(--font-display);
+    font-size: clamp(42px, 7vw, 72px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: var(--text-primary);
 }
 
-/* ── Grid ── */
 .contacts-section {
-    background: #f4f6f9;
-    padding: 80px 40px;
+    max-width: 1200px;
     min-height: 60vh;
+    margin: 0 auto;
+    padding: 56px 24px 88px;
 }
 
 .offices-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    max-width: 1100px;
-    margin: 0 auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
 }
 
-/* ── Card ── */
 .office-card {
-    background: #ffffff;
-    border-radius: 4px;
+    position: relative;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 20px rgba(30, 60, 114, 0.08);
-    animation: fadeUp 0.6s ease both;
-    animation-delay: var(--delay, 0s);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.office-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 70%);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity var(--transition);
 }
 
 .office-card:hover {
-    box-shadow: 0 8px 40px rgba(30, 60, 114, 0.16);
-    transform: translateY(-4px);
+    transform: translateY(-3px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-hover);
+}
+
+.office-card:hover::before {
+    opacity: 1;
+}
+
+.office-number01,
+.office-number02 {
+    height: 190px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .office-number01 {
-    background: url('../images/index/poland.png') center/cover no-repeat;
-    height: 183px;
+    background-image: url('../images/index/poland.png');
 }
 
 .office-number02 {
-    background: url('../images/index/portugal.png') center/cover no-repeat;
-    height: 183px;
+    background-image: url('../images/index/portugal.png');
 }
 
 .office-body {
-    padding: 28px 32px 36px;
-    flex: 1;
     display: flex;
+    flex: 1;
     flex-direction: column;
+    padding: 32px;
 }
 
 .office-city {
-    font-family: 'Barlow Condensed', sans-serif;
+    margin-bottom: 8px;
+    font-family: var(--font-display);
     font-size: 36px;
-    font-weight: 800;
-    color: #1e3c72;
-    margin: 0 0 6px;
-    letter-spacing: -0.5px;
+    font-weight: 700;
+    line-height: 1.05;
+    color: var(--text-primary);
 }
 
 .office-address {
-    font-family: 'Barlow', sans-serif;
-    font-size: 14px;
-    color: #8a9bb5;
-    margin: 0 0 28px;
-    line-height: 1.5;
+    margin-bottom: 26px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.65;
 }
 
-/* ── Detail rows ── */
 .office-details {
     display: flex;
     flex-direction: column;
     gap: 14px;
+    margin-top: auto;
 }
 
 .detail-row {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-family: 'Barlow', sans-serif;
+    color: var(--text-secondary);
     font-size: 15px;
-    color: #3a4a6b;
 }
 
 .detail-row svg {
     width: 18px;
     height: 18px;
-    fill: #2a5298;
-    flex-shrink: 0;
+    flex: 0 0 18px;
+    fill: var(--accent);
 }
 
 .detail-row a {
-    color: #2a5298;
-    text-decoration: none;
+    color: var(--accent);
     font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s;
+    text-decoration: none;
+    transition: color var(--transition);
 }
 
 .detail-row a:hover {
-    border-bottom-color: #2a5298;
+    color: var(--accent-hover);
 }
 
-/* ── Animation ── */
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
+@media (max-width: 900px) {
+    .contacts-hero {
+        padding: 52px 20px 40px;
+    }
 
-/* ── Responsive ── */
-@media (max-width: 768px) {
+    .contacts-section {
+        padding: 40px 20px 64px;
+    }
+
     .offices-grid {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
-    .contacts-hero h1 {
-        font-size: 44px;
+}
+
+@media (max-width: 640px) {
+    .contacts-hero {
+        padding: 40px 16px 32px;
+    }
+
+    .contacts-section {
+        padding: 32px 16px 48px;
+    }
+
+    .office-body {
+        padding: 24px 20px;
+    }
+
+    .office-city {
+        font-size: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .office-card,
+    .office-card::before,
+    .detail-row a {
+        transition: none;
+    }
+
+    .office-card:hover {
+        transform: none;
     }
 }

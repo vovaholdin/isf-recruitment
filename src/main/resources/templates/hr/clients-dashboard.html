@@ -8,6 +8,21 @@
     <link rel="stylesheet" th:href="@{/css/dashboard.css}">
 </head>
 <body>
+
+
+<!-- Header -->
+<div class="header">
+    <h1>HR Dashboard</h1>
+    <div class="header-info">
+        <!--            <span class="user-count" th:text="${users.size()} + ' Users'">0 Users</span>-->
+        <a href="/hr/dashboard" class="clients-btn">
+            Users
+        </a>
+        <a href="/hr/clients" class="clients-btn">
+            Clients
+        </a>
+    </div>
+</div>
 <!-- Client Grid -->
 <div class="users-grid">
     <div class="user-card" th:each="client : ${clients}">

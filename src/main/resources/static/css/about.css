@@ -1,85 +1,69 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-    color: #1a1a1a;
-    line-height: 1.6;
-}
-
-/* Hero Section */
 .hero {
     position: relative;
-    height: 70vh;
-    min-height: 500px;
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 520px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
     overflow: hidden;
-    width: 100%;
-
-    //todo исправить фон что бы был на весь экран
+    background: #1a1d23 url('../images/about/frontsideforno.jpg') center/cover no-repeat;
+    border-bottom: 1px solid var(--border);
 }
 
 .hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 100%);
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,29,35,.18) 0%, rgba(26,29,35,.74) 100%);
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-    max-width: 900px;
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 0 0 58px;
+    color: #fff;
 }
 
 .hero h1 {
-    font-size: 56px;
+    max-width: 760px;
+    margin-bottom: 18px;
+    font-family: var(--font-display);
+    font-size: clamp(44px, 7vw, 76px);
     font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    line-height: 1;
+    letter-spacing: -.02em;
 }
 
 .hero-subtitle {
-    font-size: 24px;
-    font-weight: 300;
-    opacity: 0.95;
+    max-width: 680px;
+    color: rgba(255,255,255,.86);
+    font-size: 18px;
+    line-height: 1.65;
 }
 
-/* Container */
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px 80px;
 }
 
-/* Sections */
 section {
-    padding: 80px 0;
+    padding: 64px 0;
 }
 
 section h2 {
-    font-size: 40px;
+    margin-bottom: 28px;
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 52px);
     font-weight: 700;
-    margin-bottom: 40px;
-    color: #1e3c72;
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    color: var(--text-primary);
 }
 
-/* Content Grid */
 .content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
     align-items: center;
 }
 
@@ -92,331 +76,323 @@ section h2 {
 }
 
 .text-content {
-    font-size: 18px;
-    color: #4a4a4a;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.75;
 }
 
-.text-content p {
-    margin-bottom: 20px;
+.text-content p + p {
+    margin-top: 16px;
 }
 
 .text-content h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #1e3c72;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    font-family: var(--font-display);
+    font-size: 24px;
+    line-height: 1.15;
+    color: var(--text-primary);
 }
 
-/* Image Placeholder */
 .image-placeholder {
-    background: #f5f7fa;
-    border: 2px dashed #cbd5e0;
-    border-radius: 12px;
-    aspect-ratio: 4/3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    padding: 0; /* Изменили с 40px на 0 */
-    text-align: center;
-    overflow: hidden; /* Добавили */
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
 }
 
-.placeholder-icon {
-    width: 100%; /* Изменили с 80px на 100% */
-    height: 100%; /* Изменили с 80px на 100% */
-    color: #a0aec0;
-}
-
-.placeholder-icon svg {
-    width: 100%;
-    height: 100%;
-    stroke-width: 1.5;
-}
-
-/* Добавьте стили для изображения */
+.placeholder-icon,
 .about-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Заполняет весь контейнер, обрезая лишнее */
+}
+
+.about-image {
     display: block;
+    object-fit: cover;
 }
 
-.image-placeholder span {
-    color: #718096;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* Services Section */
 .service-list {
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 24px;
 }
 
 .service-item {
     display: flex;
-    gap: 20px;
+    gap: 18px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
 }
 
-.service-icon {
-    width: 50px;
-    height: 50px;
-    flex-shrink: 0;
-    color: #2a5298;
+.service-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
-.service-icon svg {
-    width: 100%;
-    height: 100%;
-    stroke-width: 1.5;
+.service-icon,
+.approach-icon,
+.contact-item svg {
+    color: var(--accent);
 }
 
-/* Approach Section */
-.approach-section {
-    background: #f8f9fb;
-    margin: 0 -20px;
-    padding: 80px 20px;
-}
-
-.approach-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.approach-card {
-    background: white;
-    padding: 35px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.approach-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
+.service-icon,
 .approach-icon {
-    width: 50px;
-    height: 50px;
-    color: #2a5298;
-    margin-bottom: 20px;
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
 }
 
+.service-icon svg,
 .approach-icon svg {
     width: 100%;
     height: 100%;
-    stroke-width: 1.5;
+    stroke-width: 1.7;
 }
 
-.approach-card h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #1e3c72;
-    margin-bottom: 15px;
+.approach-section,
+.careers-section {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: calc(50vw - 50%);
+    padding-right: calc(50vw - 50%);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
 }
 
-.approach-card p {
-    font-size: 16px;
-    color: #4a4a4a;
+.approach-section {
+    background: #e9ebee;
+}
+
+.approach-grid,
+.offices-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.approach-card,
+.office-card {
+    position: relative;
+    overflow: hidden;
+    padding: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.approach-card::before,
+.office-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+
+.approach-card:hover,
+.office-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-hover);
+}
+
+.approach-card:hover::before,
+.office-card:hover::before {
+    opacity: 1;
+}
+
+.approach-card h3,
+.office-card h3 {
+    margin: 14px 0 12px;
+    font-family: var(--font-display);
+    font-size: 25px;
+    line-height: 1.15;
+    color: var(--text-primary);
+}
+
+.approach-card p,
+.office-card p {
+    color: var(--text-secondary);
     line-height: 1.7;
 }
 
-/* Careers Section */
 .careers-section {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-    margin: 0 -20px;
-    padding: 80px 20px;
-    color: white;
-}
-
-.careers-section h2 {
-    color: white;
-}
-
-.careers-section .text-content {
-    color: rgba(255,255,255,0.95);
+    background: var(--bg-card);
 }
 
 .careers-highlights {
-    margin: 30px 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    margin: 24px 0;
 }
 
 .highlight-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
-    font-size: 17px;
+    color: var(--text-secondary);
 }
 
 .highlight-item svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    color: var(--accent);
     stroke-width: 3;
-    color: #4ade80;
-    flex-shrink: 0;
 }
 
 .btn-careers {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: white;
-    color: #1e3c72;
-    padding: 16px 32px;
-    border-radius: 8px;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-    margin-top: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 12px rgba(217,124,20,.25);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .btn-careers:hover {
+    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Contact Section */
-.offices-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
-}
-
-.office-card {
-    background: white;
-    border: 2px solid #e5e7eb;
-    border-radius: 12px;
-    padding: 40px;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.office-card:hover {
-    border-color: #2a5298;
-    box-shadow: 0 4px 12px rgba(42, 82, 152, 0.15);
+    box-shadow: 0 6px 20px rgba(217,124,20,.35);
 }
 
 .office-flag {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-.office-card h3 {
-    font-size: 28px;
-    font-weight: 700;
-    color: #1e3c72;
-    margin-bottom: 25px;
+    margin-bottom: 12px;
+    font-size: 34px;
 }
 
 .office-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 14px;
 }
 
 .company-name {
+    color: var(--text-primary);
     font-weight: 600;
-    color: #1a1a1a;
-    font-size: 16px;
 }
 
 .address {
-    color: #4a4a4a;
-    line-height: 1.8;
+    color: var(--text-secondary);
+    line-height: 1.7;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 10px;
 }
 
 .contact-item svg {
     width: 20px;
     height: 20px;
-    color: #2a5298;
-    stroke-width: 2;
 }
 
 .contact-item a {
-    color: #2a5298;
+    color: var(--accent);
+    font-weight: 600;
     text-decoration: none;
-    font-weight: 500;
 }
 
 .contact-item a:hover {
-    text-decoration: underline;
+    color: var(--accent-hover);
 }
 
-/* Responsive */
-@media (max-width: 968px) {
-    .hero h1 {
-        font-size: 42px;
+@media (max-width: 900px) {
+    .hero-content {
+        width: min(100% - 40px, 1200px);
     }
 
-    .hero-subtitle {
-        font-size: 20px;
+    .container {
+        padding: 0 20px 60px;
+    }
+
+    section {
+        padding: 52px 0;
     }
 
     .content-grid,
     .approach-grid,
     .offices-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    section h2 {
-        font-size: 32px;
-    }
-
-    .approach-section {
-        margin: 0 -10px;
-        padding: 60px 10px;
-    }
-
-    .careers-section {
-        margin: 0 -10px;
-        padding: 60px 10px;
+        gap: 32px;
     }
 }
 
 @media (max-width: 640px) {
     .hero {
-        height: 60vh;
-        min-height: 400px;
+        min-height: 420px;
+    }
+
+    .hero-content {
+        width: min(100% - 32px, 1200px);
+        padding-bottom: 36px;
     }
 
     .hero h1 {
-        font-size: 32px;
+        font-size: 38px;
     }
 
-    .hero-subtitle {
-        font-size: 18px;
+    .hero-subtitle,
+    .text-content {
+        font-size: 15px;
+    }
+
+    .container {
+        padding: 0 16px 48px;
     }
 
     section {
-        padding: 50px 0;
+        padding: 40px 0;
     }
 
-    section h2 {
-        font-size: 28px;
-        margin-bottom: 30px;
-    }
-
-    .text-content {
-        font-size: 16px;
-    }
-
+    .approach-card,
     .office-card {
-        padding: 30px 20px;
+        padding: 24px 20px;
+    }
+
+    .service-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-careers {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .approach-card,
+    .office-card,
+    .btn-careers,
+    .approach-card::before,
+    .office-card::before {
+        transition: none;
+    }
+
+    .approach-card:hover,
+    .office-card:hover,
+    .btn-careers:hover {
+        transform: none;
     }
 }

@@ -1,28 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap');
 
 :root {
-    --client-bg: #f3f6f8;
-    --client-surface: #ffffff;
-    --client-primary: #1f4c8f;
-    --client-primary-dark: #14345f;
-    --client-accent: #d78a2f;
-    --client-text: #1f2937;
-    --client-muted: #64748b;
-    --client-border: #dbe3ea;
-    --client-shadow: 0 24px 60px rgba(20, 52, 95, 0.12);
+    --bg-page: #f0f1f3;
+    --bg-card: #ffffff;
+    --bg-card-hover: #fafafa;
+    --border: #e0e2e6;
+    --border-hover: #c8cad0;
+    --text-primary: #1a1d23;
+    --text-secondary: #5a6070;
+    --text-muted: #9098a8;
+    --accent: #d97c14;
+    --accent-light: #f5eadb;
+    --accent-hover: #bf6b0e;
+    --shadow-card: 0 1px 3px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.06);
+    --shadow-hover: 0 4px 8px rgba(0,0,0,.08), 0 12px 32px rgba(0,0,0,.10);
+    --font-display: 'Barlow Condensed', sans-serif;
+    --font-body: 'Barlow', sans-serif;
+    --radius: 12px;
+    --transition: 220ms cubic-bezier(.4,0,.2,1);
 }
 
-* {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
 body {
     margin: 0;
-    font-family: 'Barlow', sans-serif;
-    color: var(--client-text);
-    background:
-        radial-gradient(circle at top left, rgba(215, 138, 47, 0.18), transparent 28%),
-        linear-gradient(180deg, #edf3f9 0%, var(--client-bg) 100%);
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-body);
 }
 
 .client-page {
@@ -30,113 +36,126 @@ body {
 }
 
 .client-hero {
-    padding: 96px 24px 40px;
-    background: linear-gradient(135deg, #0f2748 0%, #1f4c8f 55%, #3a6eb6 100%);
-    color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 72px 24px 56px;
+    border-bottom: 1px solid var(--border);
 }
 
 .client-hero__inner,
 .client-contact__grid {
-    width: min(1180px, calc(100% - 32px));
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .client-hero__eyebrow,
 .client-copy__label {
     display: inline-block;
-    font-size: 13px;
+    padding: 5px 12px;
+    background: var(--accent-light);
+    border-radius: 4px;
+    color: var(--accent);
+    font-size: 11px;
     font-weight: 600;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    letter-spacing: 0.28em;
 }
 
 .client-hero__eyebrow {
-    color: rgba(255, 255, 255, 0.72);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 
 .client-hero__title,
 .client-copy__title {
     margin: 0;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
-    line-height: 0.95;
-    letter-spacing: -0.03em;
+    line-height: 1;
+    letter-spacing: -.02em;
+    color: var(--text-primary);
 }
 
 .client-hero__title {
-    font-size: clamp(3rem, 6vw, 5.25rem);
-    max-width: 680px;
+    max-width: 760px;
+    font-size: clamp(42px, 7vw, 72px);
 }
 
 .client-hero__subtitle {
     max-width: 760px;
     margin: 20px 0 0;
-    font-size: 1.1rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.82);
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.65;
 }
 
 .client-contact {
-    padding: 48px 0 88px;
+    padding: 56px 24px 88px;
 }
 
 .client-contact__grid {
     display: grid;
-    grid-template-columns: minmax(280px, 0.9fr) minmax(340px, 1.1fr);
-    gap: 32px;
+    grid-template-columns: minmax(280px, .9fr) minmax(360px, 1.1fr);
+    gap: 20px;
     align-items: start;
 }
 
 .client-copy,
 .client-form {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(219, 227, 234, 0.9);
-    border-radius: 28px;
-    box-shadow: var(--client-shadow);
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+}
+
+.client-copy::before,
+.client-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent) 0%, transparent 70%);
 }
 
 .client-copy {
-    padding: 40px 36px;
+    padding: 40px;
 }
 
 .client-copy__label {
-    color: var(--client-accent);
     margin-bottom: 18px;
 }
 
 .client-copy__title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    color: var(--client-primary-dark);
     margin-bottom: 22px;
+    font-size: clamp(34px, 5vw, 52px);
 }
 
 .client-copy__text {
     margin: 0 0 18px;
-    font-size: 1.02rem;
-    line-height: 1.8;
-    color: var(--client-muted);
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.75;
 }
 
 .client-copy__link {
-    color: var(--client-primary);
+    color: var(--accent);
     font-weight: 600;
     text-decoration: none;
-    border-bottom: 2px solid rgba(31, 76, 143, 0.22);
-    transition: border-color 0.2s ease, color 0.2s ease;
+    transition: color var(--transition);
 }
 
 .client-copy__link:hover {
-    color: var(--client-primary-dark);
-    border-color: var(--client-primary-dark);
+    color: var(--accent-hover);
 }
 
 .client-form {
-    padding: 34px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
+    padding: 40px;
 }
 
 .client-form__field {
@@ -151,22 +170,23 @@ body {
 }
 
 .client-form label {
-    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-size: 14px;
     font-weight: 600;
-    color: var(--client-primary-dark);
 }
 
 .client-form input,
 .client-form textarea {
     width: 100%;
-    border: 1px solid var(--client-border);
-    border-radius: 16px;
-    padding: 14px 16px;
-    font: inherit;
-    color: var(--client-text);
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
     background: #fff;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 15px;
     outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .client-form textarea {
@@ -176,33 +196,45 @@ body {
 
 .client-form input:focus,
 .client-form textarea:focus {
-    border-color: rgba(31, 76, 143, 0.7);
-    box-shadow: 0 0 0 4px rgba(31, 76, 143, 0.12);
-    transform: translateY(-1px);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(217,124,20,.12);
 }
 
 .client-form__submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
     border: none;
-    border-radius: 999px;
-    padding: 15px 24px;
-    background: linear-gradient(135deg, var(--client-accent) 0%, #b66a11 100%);
-    color: #ffffff;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
     font: inherit;
+    font-size: 14px;
     font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 12px rgba(217,124,20,.25);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 
 .client-form__submit:hover {
+    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 14px 32px rgba(182, 106, 17, 0.28);
+    box-shadow: 0 6px 20px rgba(217,124,20,.35);
 }
 
 @media (max-width: 900px) {
-    .client-contact__grid {
-        grid-template-columns: 1fr;
+    .client-hero {
+        padding: 52px 20px 40px;
     }
 
+    .client-contact {
+        padding: 40px 20px 64px;
+    }
+
+    .client-contact__grid,
     .client-form {
         grid-template-columns: 1fr;
     }
@@ -210,16 +242,32 @@ body {
 
 @media (max-width: 640px) {
     .client-hero {
-        padding-top: 76px;
+        padding: 40px 16px 32px;
+    }
+
+    .client-contact {
+        padding: 32px 16px 48px;
     }
 
     .client-copy,
     .client-form {
-        padding: 24px;
-        border-radius: 22px;
+        padding: 24px 20px;
     }
 
-    .client-copy__title {
-        line-height: 1;
+    .client-form__submit {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .client-copy__link,
+    .client-form input,
+    .client-form textarea,
+    .client-form__submit {
+        transition: none;
+    }
+
+    .client-form__submit:hover {
+        transform: none;
     }
 }

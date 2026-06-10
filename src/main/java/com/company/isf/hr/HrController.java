@@ -4,6 +4,7 @@ package com.company.isf.hr;
 import com.company.isf.entity.client.Client;
 import com.company.isf.entity.client.ClientService;
 import com.company.isf.entity.files.files_client.FilesClient;
+import com.company.isf.entity.files.files_user.FilesUser;
 import com.company.isf.entity.user.User;
 import com.company.isf.entity.user.UserService;
 import com.company.isf.notification.MailSenderService;
@@ -36,15 +37,14 @@ public class HrController {
     private String invite_code;
 
 
-
     @GetMapping("/loghr")
-    public String getLogin(){
+    public String getLogin() {
         return "/hr/hrlogin";
     }
 
     @PostMapping("/loghr")
-    public String postLogin(@RequestParam String code, HttpServletRequest httpServletRequest){
-        if (!invite_code.equals(code)){
+    public String postLogin(@RequestParam String code, HttpServletRequest httpServletRequest) {
+        if (!invite_code.equals(code)) {
             return "redirect:/error";
         }
         httpServletRequest.getSession().setAttribute("HR_LOGGED_IN", true);
@@ -52,20 +52,20 @@ public class HrController {
     }
 
     @GetMapping("/hr/dashboard")
-    public String dashboard(Model model){
+    public String dashboard(Model model) {
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
         return "/hr/dashboard";
     }
 
     @GetMapping("/hr/user/delete/{id}")
-        public String delete(@PathVariable Long id){
+    public String deleteUser(@PathVariable Long id) {
         userService.delete(id);
         return "redirect:/hr/dashboard";
     }
 
     @GetMapping("/hr/user/{id}")
-    public String viewInfo(@PathVariable Long id, Model model){
+    public String viewInfo(@PathVariable Long id, Model model) {
         User user = userService.findById(id).orElseThrow();
         model.addAttribute("user", user);
         return "/hr/user";
@@ -73,9 +73,9 @@ public class HrController {
 
     @PostMapping("/sendMail")
     public String sendMail(
-                           @RequestParam String recipient,
-                           @RequestParam String subject,
-                           @RequestParam String message){
+            @RequestParam String recipient,
+            @RequestParam String subject,
+            @RequestParam String message) {
 
         senderService.sendEmail(recipient, subject, message);
 
@@ -87,7 +87,7 @@ public class HrController {
     public String sendMailClient(
             @RequestParam String recipient,
             @RequestParam String subject,
-            @RequestParam String message){
+            @RequestParam String message) {
 
         senderService.sendEmail(recipient, subject, message);
 
@@ -96,19 +96,19 @@ public class HrController {
     }
 
     @PatchMapping("/api/users/{id}/mark")
-    public ResponseEntity<?> markUser(@PathVariable String id, @RequestBody Map<String, Boolean> body){
+    public ResponseEntity<?> markUser(@PathVariable String id, @RequestBody Map<String, Boolean> body) {
         userService.updateMarked(Long.parseLong(id), body.get("marked"));
         return ResponseEntity.ok().build();
     }
 
     @PatchMapping("/api/clients/{id}/mark")
-    public ResponseEntity<?> markClient(@PathVariable String id, @RequestBody Map<String, Boolean> body){
+    public ResponseEntity<?> markClient(@PathVariable String id, @RequestBody Map<String, Boolean> body) {
         clientService.updateMarked(Long.parseLong(id), body.get("marked"));
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/hr/file-client/{id}")
-    public ResponseEntity<Resource> showFile(@PathVariable Long id, Model model) throws MalformedURLException {
+    public ResponseEntity<Resource> showFileClient(@PathVariable Long id, Model model) throws MalformedURLException {
         List<FilesClient> filesClients = clientService.findById(id).orElseThrow().getFilesClients();
         FilesClient filesClient = filesClients.stream()
                 .findFirst()
@@ -121,21 +121,35 @@ public class HrController {
                 .body(resource);
     }
 
+    @GetMapping("/hr/file-user/{id}")
+    public ResponseEntity<Resource> showFileUser(@PathVariable Long id, Model model) throws MalformedURLException {
+        List<FilesUser> filesUsers = userService.findById(id).orElseThrow().getFiles();
+        FilesUser filesUser = filesUsers.stream()
+                .findFirst()
+                .orElseThrow();
+        Path path = Paths.get("uploads/" + filesUser.getFilename());
+        org.springframework.core.io.Resource resource = new FileSystemResource(path);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=document.pdf")
+                .body(resource);
+    }
+
     @GetMapping("/hr/clients")
-    public String showClient(Model model){
+    public String showClient(Model model) {
         List<Client> all = clientService.findAll();
         model.addAttribute("clients", all);
         return "hr/clients-dashboard";
     }
 
-    @DeleteMapping("/hr/client/delete/{id}")
-    public String deleteClient(@PathVariable Long id){
+    @GetMapping("/hr/client/delete/{id}")
+    public String deleteClient(@PathVariable Long id) {
         clientService.delete(clientService.findById(id).orElseThrow());
-        return "redirect:/hr/dashboard";
+        return "redirect:/hr/clients";
     }
 
     @GetMapping("/hr/client-detail/{id}")
-    public String showClientDetail(@PathVariable Long id, Model model){
+    public String showClientDetail(@PathVariable Long id, Model model) {
         Client client = clientService.findById(id).orElseThrow();
         model.addAttribute("client", client);
         return "hr/client";

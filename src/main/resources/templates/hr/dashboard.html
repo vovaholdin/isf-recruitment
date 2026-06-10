@@ -12,7 +12,10 @@
     <div class="header">
         <h1>HR Dashboard</h1>
         <div class="header-info">
-            <span class="user-count" th:text="${users.size()} + ' Users'">0 Users</span>
+<!--            <span class="user-count" th:text="${users.size()} + ' Users'">0 Users</span>-->
+            <a href="/hr/dashboard" class="clients-btn">
+                Users
+            </a>
             <a href="/hr/clients" class="clients-btn">
                 Clients
             </a>
